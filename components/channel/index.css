@@ -1,0 +1,44 @@
+.page{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.page--mask{
+    background: rgba(0,0,0,0.8);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.page--content{
+    background:red;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100px;
+    bottom: 0;
+    color: #ffffff;
+}
+.page--content--level1 {
+    display: flex;
+    padding: 20px;
+    border-bottom: 1px solid #d4d4d4;
+    justify-content: space-between;
+    align-self: center;
+    font-size: 18px;
+}
+.page--content--level1 div{
+    text-align: center;
+}
+.page--content--level2{
+    width: 100px;
+    font-size: 14px;
+}
+.page--content--level3{
+    flex: 1;
+    font-size: 14px;
+}

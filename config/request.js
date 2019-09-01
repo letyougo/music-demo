@@ -1,4 +1,11 @@
 import axios from 'axios'
+import store from '../store'
+
+const WHITE_LIST = [
+	'/music/getRecommendMusic',
+	'/music/getGroupMusic',
+	'/user/getUserDetail'
+]
 
 const request = axios.create({
   baseURL: '/',
@@ -8,6 +15,12 @@ const request = axios.create({
 })
 
 request.interceptors.request.use(req => {
+	if(WHITE_LIST.includes(req.url)){
+		return req
+	}
+	if(!store.user.isLogin) {
+		location.href = '//music.163.com/m/login?redirect_url=https%3A%2F%2Fmusic.163.com%2Fst%2Fdifm'
+	}
   return req
 })
 
@@ -24,6 +37,8 @@ request.interceptors.response.use(res => {
 
 
   return res.data
+},(e) => {
+  return Promise.reject(e)
 })
 
 
